@@ -46,7 +46,7 @@ To deploy the COSMOS infrastructure, ensure you have the following tools install
 
 1. **Clone the repositories**:
    ```bash
-   git clone https://github.com/CosmosCorp/<repo_name>.git
+   git clone https://github.com/<repo_name>.git
    ```
    Replace `<repo_name>` with the name of the corresponding repository (Helios, Apollon V2, etc.).
 
