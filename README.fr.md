@@ -46,7 +46,7 @@ Pour déployer l'infrastructure COSMOS, assurez-vous d'avoir les outils suivants
 
 1. **Cloner les repositories** :
    ```bash
-   git clone https://github.com/CosmosCorp/<nom_du_repo>.git
+   git clone https://github.com/<nom_du_repo>.git
    ```
 
 2. **Configurer l'environnement Docker** :
