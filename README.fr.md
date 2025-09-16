@@ -12,12 +12,29 @@ Bienvenue dans **COSMOS**, une simulation ambitieuse d'une entreprise fictive, *
 - Démontrer l'utilisation de frameworks comme **Next.js** (pour les applications web), **Python** (pour les scripts et backend), et **JavaScript/TypeScript** (pour des interfaces dynamiques).
 - Fournir une documentation claire et des instructions pour déployer l'infrastructure avec **Docker**.
 
+---
+
+## 🧑‍💻 Technologies utilisées
+
+- **Frontend** : Next.js, JavaScript, TypeScript, Tailwind CSS
+- **Backend** : Python, Node.js
+- **Infrastructure** : Docker, Docker Compose
+- **Authentification** : Authentik, LLDAP
+- **CI/CD** : Jenkins, Gitea
+- **Surveillance** : Prometheus, Grafana, Cadvisor
+- **Base de données** : PostgreSQL, Qdrant
+- **Automatisation** : n8n
+- **IA** : OpenWebUI, Ollama
+- **Gestion des secrets** : Vault
+
+---
+
 ## 📚 Structure des repositories
 
 Chaque repository est nommé d'après une divinité et correspond à un composant spécifique de l'infrastructure :
 
-| **Nom**                     | **Technologie**                     | **Description**                                                                 |
-|-----------------------------|-------------------------------------|--------------------------------------------------------------------------------|
+| **Nom du repo**                     | **Technologie**            | **Description**                                                                 |
+|-----------------------------|------------------------------------|--------------------------------------------------------------------------------|
 | **Hélios**                  | Authentik                          | Système d'authentification centralisé pour gérer les identités et l'accès.     |
 | **Apollon V2**              | Next.js, TypeScript                | Tableau de bord (dashboard) pour la gestion et la visualisation des données.   |
 | **Mercure**                 | LLDAP                              | Service d'annuaire léger pour la gestion des utilisateurs et groupes.          |
@@ -34,6 +51,28 @@ Chaque repository est nommé d'après une divinité et correspond à un composan
 | **Uranus**                  | -                                  | (En cours de développement, détails à venir).                                  |
 | **Pluton-Charon**           | Prometheus, Grafana, Cadvisor      | Surveillance et métriques de l'infrastructure.                                 |
 
+---
+
+## 🐳 Utilisation de Docker Swarm
+
+- **Installation via Portainer** : L'environnement Docker Swarm est installé et géré via **Portainer**, un outil open-source pour la gestion de conteneurs. Portainer facilite le déploiement de Swarm et active le **cryptage des réseaux overlay** par défaut, assurant une communication sécurisée entre les nœuds du cluster.
+- **Réseaux personnalisés MacVLAN** : Pour éviter les conflits de ports et ne pas exposer les services via NAT (Network Address Translation), nous utilisons des réseaux **MacVLAN**. Cela permet aux conteneurs d'obtenir des adresses IP et MAC directement sur le réseau physique de l'hôte, simulant des machines virtuelles indépendantes. Cela améliore la sécurité en évitant l'exposition directe des ports et facilite l'intégration avec des réseaux existants.
+- **Simulation d'un environnement de développement** : Docker Swarm est utilisé ici pour simuler un environnement de développement multi-nœuds, scalable et résilient. Cela prépare une transition fluide vers **Kubernetes** en production, où des outils comme Helm ou Kustomize peuvent être adoptés pour une orchestration plus avancée. En dev, Swarm offre une courbe d'apprentissage plus douce tout en supportant des features comme les services réplicables et les stacks.
+
+---
+
+## ⚡ Évolutions et améliorations suggérées
+
+Pour faire évoluer le projet COSMOS vers une maturité production-ready, voici quelques suggestions :
+- **Mise en place de Kubernetes** : Une fois l'environnement dev stabilisé avec Swarm, mettre en place Kubernetes pour une orchestration pour la production. Utilisation des outils comme `kompose` pour convertir les fichiers `docker-compose.yml` en manifests Kubernetes.
+- **Automatisation avancée** : Ajoutez des pipelines CI/CD plus complexes avec Jenkins pour des tests automatisés.
+- **Sécurité renforcée** : Implémentez des scans de vulnérabilités avec Trivy sur les images Docker, et activez Docker Content Trust pour signer les images.
+- **Scalabilité horizontale** : Tester la réplication de services critiques (ex. : bases de données avec PostgreSQL en cluster) et intégrer des outils comme Elasticsearch pour la recherche distribuée.
+- **Monitoring étendu** : Étendre Grafana avec des alertes via Alertmanager.
+- **IA et ML** : Améliorer Neptune Triton en intégrant des modèles ML personnalisés avec TensorFlow ou PyTorch, et explorer le fine-tunings via Hugging Face.
+
+---
+
 ## 🛠️ Prérequis
 
 Pour déployer l'infrastructure COSMOS, assurez-vous d'avoir les outils suivants installés :
@@ -41,36 +80,3 @@ Pour déployer l'infrastructure COSMOS, assurez-vous d'avoir les outils suivants
 - **Node.js** pour les projets basés sur **Next.js** et **TypeScript** et **JavaScript**.
 - **Python** (version 3.8 ou supérieure) pour les scripts et services backend.
 - Un éditeur de code comme **VS Code** pour modifier les fichiers de configuration.
-
-## 🚀 Installation et déploiement
-
-1. **Cloner les repositories** :
-   ```bash
-   git clone https://github.com/<nom_du_repo>.git
-   ```
-
-2. **Configurer l'environnement Docker** :
-   Chaque repository contient un fichier `docker-compose.yml` pour orchestrer les services. Lancez :
-   ```bash
-   cd <nom_du_repo>
-   docker-compose up -d
-   ```
-
-3. **Personnaliser les variables d'environnement** :
-   Certains services nécessitent des fichiers `.env`. Consultez les instructions spécifiques dans chaque repository.
-
-4. **Accéder aux applications** :
-   Une fois les conteneurs lancés, les applications sont accessibles via des URL locales (ex. : `http://localhost:3000` pour les apps Next.js).
-
-## 🧑‍💻 Technologies utilisées
-
-- **Frontend** : Next.js, JavaScript, TypeScript, Tailwind CSS
-- **Backend** : Python, Node.js
-- **Infrastructure** : Docker, Docker Compose
-- **Authentification** : Authentik, LLDAP
-- **CI/CD** : Jenkins, Gitea
-- **Surveillance** : Prometheus, Grafana, Cadvisor
-- **Base de données** : PostgreSQL, Qdrant
-- **Automatisation** : n8n
-- **IA** : OpenWebUI, Ollama
-- **Gestion des secrets** : Vault
