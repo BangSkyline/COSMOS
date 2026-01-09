@@ -1,16 +1,16 @@
 # 🌌 Projet COSMOS
 
-Bienvenue dans **COSMOS**, une simulation ambitieuse d'une entreprise fictive, *Cosmos.Corp*, spécialisée dans les **nouvelles technologies** : intelligence artificielle (IA), fine-tuning, data science, développement web, gestion de serveurs et bases de données. Ce projet vise à recréer une infrastructure complète, de l'environnement physique au virtuel, en s'appuyant sur des technologies modernes comme **Docker**, **Next.js**, **Python**, **JavaScript/TypeScript**, et bien plus encore.
+Bienvenue dans **COSMOS**, une simulation d'une entreprise fictive, *Cosmos.Corp*, spécialisée dans les **nouvelles technologies** : intelligence artificielle (IA), fine-tuning, data science, développement web, gestion de serveurs et bases de données. Ce projet vise à recréer une infrastructure complète, de l'environnement physique au virtuel, en s'appuyant sur des technologies modernes comme **Proxmox**, **K3s**, **Containerd** **Next.js**, **Python**, **JavaScript/TypeScript**, et bien plus encore.
 
 ## 🚀 Aperçu du projet
 
-*Cosmos.Corp* est une entreprise fictive qui excelle dans la création de solutions technologiques innovantes. Le projet est structuré autour de multiples **repositories** nommés d'après des divinités grecques et romaines, chacun représentant un composant clé de l'infrastructure. Ces composants sont orchestrés via **Docker** pour garantir une mise en place rapide, scalable et portable.
+*Cosmos.Corp* est une entreprise fictive qui excelle dans la création de solutions technologiques innovantes. Le projet est structuré autour de multiples **repositories** nommés d'après des divinités grecques et romaines, chacun représentant un composant clé de l'infrastructure. Ces composants sont orchestrés via **K3s** pour garantir une mise en place rapide, scalable et portable.
 
 ### 🎯 Objectifs
-- Simuler une infrastructure d'entreprise complète, du frontend au backend.
+- Simuler une infrastructure d'entreprise complète, du système au réseau.
 - Intégrer des outils modernes pour l'authentification, la CI/CD, la gestion de données, et la surveillance.
 - Démontrer l'utilisation de frameworks comme **Next.js** (pour les applications web), **Python** (pour les scripts et backend), et **JavaScript/TypeScript** (pour des interfaces dynamiques).
-- Fournir une documentation claire et des instructions pour déployer l'infrastructure avec **Docker**.
+- Fournir une documentation claire et des instructions pour déployer l'infrastructure avec **Containerd**, **Docker**, puis **K3s**.
 
 ---
 
@@ -18,7 +18,7 @@ Bienvenue dans **COSMOS**, une simulation ambitieuse d'une entreprise fictive, *
 
 - **Frontend** : Next.js, JavaScript, TypeScript, Tailwind CSS
 - **Backend** : Python, Node.js
-- **Infrastructure** : Docker, Docker Compose
+- **Infrastructure** : Proxmox, PfSense, K3s, Chartes Helm, Containerd, Docker, Docker Compose
 - **Authentification** : Authentik, LLDAP
 - **CI/CD** : Jenkins, Gitea
 - **Surveillance** : Prometheus, Grafana, Cadvisor
@@ -46,9 +46,9 @@ Chaque repository est nommé d'après une divinité et correspond à un composan
 | **Hécate**                  | Next.js, TypeScript                | Application web pour la gestion de projets avancés.                           |
 | **Mars**                    | GLPI                               | Gestion des actifs informatiques et helpdesk.                                 |
 | **Jupiter Optimus**         | Next.js, TypeScript, Python        | Site web principal de Cosmos.Corp, vitrine de l'entreprise.                   |
-| **Saturne**                 | -                                  | (En cours de développement, détails à venir).                                  |
+| **Saturne**                 | -                                  | Web App de monitoring des conteneurs via branchement à un proxy du socket docker.                                  |
 | **Neptune Triton**          | OpenWebUI, Ollama, n8n, Qdrant, PostgreSQL | Plateforme d'IA et d'automatisation avec base de données vectorielle. |
-| **Uranus**                  | -                                  | (En cours de développement, détails à venir).                                  |
+| **Uranus**                  | -                                  | Drive intranet .                                  |
 | **Pluton-Charon**           | Prometheus, Grafana, Cadvisor      | Surveillance et métriques de l'infrastructure.                                 |
 
 ---
